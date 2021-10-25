@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor @NoArgsConstructor
@@ -21,15 +23,23 @@ public class Song implements Serializable {
     @JoinColumn(name = "artist", foreignKey = @ForeignKey(name = "FK_SONG_ARTIST"))
     private Artist artist;
 
+    @Builder.Default
+    @OneToMany(mappedBy = "song")
+    private List<AddedTo> aniadidas = new ArrayList<>();
 
     //////  HELPERS  /////////
 
-    public void addSong(Artist a) {
+    public void addArtist(Artist a) {
         this.artist = a;
-        a.getSongs().add(this);
+
+        if(a.getSongs() == null){
+            a.setSongs(new ArrayList<>());
+            a.getSongs().add(this);
+        }
+
     }
 
-    public void removeSong(Artist a) {
+    public void removeArtis(Artist a) {
         a.getSongs().remove(this);
         this.artist = null;
     }

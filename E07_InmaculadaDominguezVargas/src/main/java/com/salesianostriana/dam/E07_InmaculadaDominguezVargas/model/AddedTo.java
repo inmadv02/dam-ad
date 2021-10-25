@@ -30,6 +30,29 @@ public class AddedTo {
 
     private int order;
 
+    //// HELPERS ////
+
+    public void addSong (Song s){
+        this.song = s;
+        s.getAniadidas().add(this);
+    }
+
+    public void removeSong (Song s){
+        s.getAniadidas().remove(this);
+        this.song = null;
+    }
+
+    public void addPlaylist (Playlist p){
+        this.playlist = p;
+        p.getAniadidas().add(this);
+    }
+
+    public void removePlaylist (Playlist p){
+        p.getAniadidas().remove(this);
+        this.playlist = null;
+    }
+
+
 
 
 

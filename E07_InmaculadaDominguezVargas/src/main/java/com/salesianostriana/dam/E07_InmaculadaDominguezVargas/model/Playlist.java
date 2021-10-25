@@ -2,11 +2,10 @@ package com.salesianostriana.dam.E07_InmaculadaDominguezVargas.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor @NoArgsConstructor
@@ -21,4 +20,8 @@ public class Playlist implements Serializable {
     private String name;
 
     private String description;
+
+    @Builder.Default
+    @OneToMany(mappedBy = "playlist")
+    private List<AddedTo> aniadidas = new ArrayList<>();
 }
