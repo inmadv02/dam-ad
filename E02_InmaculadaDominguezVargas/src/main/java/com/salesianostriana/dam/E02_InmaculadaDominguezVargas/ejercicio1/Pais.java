@@ -6,19 +6,19 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
+@Getter @Setter
 @Builder
-@Table(name = "pais")
+@Table(name = "country")
 public class Pais implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    @Column
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer id;
 
-    @Lob
-    @Column(length = 128)
+    //@Lob
+    @Column(name = "name", nullable = false, length = 128)
     private String nombre;
 
 }

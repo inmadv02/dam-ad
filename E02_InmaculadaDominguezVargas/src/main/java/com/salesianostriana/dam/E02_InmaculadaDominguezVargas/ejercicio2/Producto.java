@@ -1,30 +1,32 @@
 package com.salesianostriana.dam.E02_InmaculadaDominguezVargas.ejercicio2;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
+@Getter @Setter
 @Builder
-@Table(name = "producto")
+@Table(name = "product")
 public class Producto implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    @Column
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer id;
 
-    @Lob
-    @Column(length = 255)
+    //@Lob
+    @Column(name = "name", length = 255, nullable = false)
     private String nombre;
 
+    @Column(name = "price", nullable = false)
     private float precio;
-    private String img;
+
+    @Column(name = "imagen")
+    private String imagen;
+
+    @Column(name = "description")
     private String descripcion;
 }

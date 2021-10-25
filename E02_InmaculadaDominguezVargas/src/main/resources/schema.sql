@@ -1,15 +1,18 @@
-CREATE TABLE pais (
+CREATE TABLE country (
     id   INTEGER      NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(128) NOT NULL,
+    name VARCHAR(128) NOT NULL,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE producto (
+CREATE TABLE product (
     id   INTEGER      NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    precio REAL        NOT NULL,
-    img TEXT,
-    descripcion TEXT,
+    price REAL        NOT NULL,
+    image TEXT,
+    description TEXT,
     PRIMARY KEY (id)
 );
+
+insert into country values (1, 'España');
+
 
