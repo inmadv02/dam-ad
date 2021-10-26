@@ -24,7 +24,7 @@ public class Song implements Serializable {
     private Artist artist;
 
     @Builder.Default
-    @OneToMany(mappedBy = "song")
+    @OneToMany(mappedBy = "song", fetch = FetchType.EAGER)
     private List<AddedTo> aniadidas = new ArrayList<>();
 
     //////  HELPERS  /////////

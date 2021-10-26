@@ -26,8 +26,9 @@ public class CursoOnline implements Serializable {
     @JoinColumn(name = "videos", foreignKey = @ForeignKey(name = "FK_CURSOONLINE_PROFESOR"))
     private Profesor profesor;
 
+    @Builder.Default
     @OneToMany(mappedBy = "cursoOnline", fetch = FetchType.EAGER)
-    private List<Video> videos;
+    private List<Video> videos = new ArrayList<>();
 
     public void addProfesor (Profesor p){
         this.profesor = p;

@@ -32,4 +32,7 @@ public class Categoria implements Serializable {
                     // quién es la categoría padre de cada una de ellas, como en la base de
                     // datos HR
 
+
+
+
 }

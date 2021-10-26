@@ -22,6 +22,6 @@ public class Playlist implements Serializable {
     private String description;
 
     @Builder.Default
-    @OneToMany(mappedBy = "playlist")
+    @OneToMany(mappedBy = "playlist", fetch = FetchType.EAGER)
     private List<AddedTo> aniadidas = new ArrayList<>();
 }

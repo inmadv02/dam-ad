@@ -45,21 +45,25 @@ public class InitData {
 
         songService.save(song);
 
-        Playlist playlist = Playlist.builder().name("Taylor's Songs").description("Canciones de Taylor Swift").build();
+        Playlist playlist2 = Playlist.builder().name("Taylor's Songs").description("Canciones de Taylor Swift").build();
 
-        playlistService.save(playlist);
+        playlistService.save(playlist2);
 
-        AddedToPK addedToPk = new AddedToPK(playlist.getId(), song.getId());
+        System.out.println(playlist2.getId());
 
-        AddedTo addedTo = AddedTo.builder().id(addedToPk).dateTime(LocalDateTime.now()).build();
 
-        addedToService.save(addedTo);
+        AddedToPK addedToPk = new AddedToPK(song.getId(), playlist2.getId());
 
-        for(int i = 0; i < canciones.size(); i++){
+       AddedTo addedTo = AddedTo.builder().id(addedToPk).dateTime(LocalDateTime.now()).build();
+
+       addedToService.save(addedTo);
+       addedTo.addPlaylist(playlist2);
+
+       /** for(int i = 0; i < canciones.size(); i++){
             addedTo.addSong(canciones.get(i));
         }
 
-        addedTo.addPlaylist(playlist);
+        addedTo.addPlaylist(playlist2);**/
 
 
     }

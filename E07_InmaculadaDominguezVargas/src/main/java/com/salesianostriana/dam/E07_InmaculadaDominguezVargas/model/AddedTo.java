@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 @Entity
 @AllArgsConstructor @NoArgsConstructor
@@ -28,13 +29,16 @@ public class AddedTo {
 
     private LocalDateTime dateTime;
 
-    private int order;
+    private int orden;
 
     //// HELPERS ////
 
     public void addSong (Song s){
         this.song = s;
-        s.getAniadidas().add(this);
+        if(s.getAniadidas() == null) {
+            s.setAniadidas(new ArrayList<>());
+            s.getAniadidas().add(this);
+        }
     }
 
     public void removeSong (Song s){
