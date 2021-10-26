@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -45,25 +46,21 @@ public class InitData {
 
         songService.save(song);
 
-        Playlist playlist2 = Playlist.builder().name("Taylor's Songs").description("Canciones de Taylor Swift").build();
+        Playlist playlist2 = Playlist.builder().name("Taylor's Songs")
+                .description("Canciones de Taylor Swift").aniadidas(new ArrayList<>()).build();
 
         playlistService.save(playlist2);
 
-        System.out.println(playlist2.getId());
+
+        AddedTo addedTo = AddedTo.builder().id(new AddedToPK(song.getId(), playlist2.getId()))
+                .dateTime(LocalDateTime.now()).orden(8).build();
+
+        addedToService.save(addedTo);
 
 
-        AddedToPK addedToPk = new AddedToPK(song.getId(), playlist2.getId());
 
-       AddedTo addedTo = AddedTo.builder().id(addedToPk).dateTime(LocalDateTime.now()).build();
 
-       addedToService.save(addedTo);
-       addedTo.addPlaylist(playlist2);
 
-       /** for(int i = 0; i < canciones.size(); i++){
-            addedTo.addSong(canciones.get(i));
-        }
-
-        addedTo.addPlaylist(playlist2);**/
 
 
     }

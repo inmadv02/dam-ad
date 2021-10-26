@@ -56,6 +56,16 @@ public class AddedTo {
         this.playlist = null;
     }
 
+    public void addSongPlaylist(Song s, Playlist p) {
+        addSong(s);
+        addPlaylist(p);
+    }
+
+    public void removeAsignaturaAlumno(Song s, Playlist p) {
+        removeSong(s);
+        removePlaylist(p);
+    }
+
 
 
 
