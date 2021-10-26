@@ -35,10 +35,8 @@ public class AddedTo {
 
     public void addSong (Song s){
         this.song = s;
-        if(s.getAniadidas() == null) {
-            s.setAniadidas(new ArrayList<>());
-            s.getAniadidas().add(this);
-        }
+        s.getAniadidas().add(this);
+
     }
 
     public void removeSong (Song s){
@@ -61,7 +59,7 @@ public class AddedTo {
         addPlaylist(p);
     }
 
-    public void removeAsignaturaAlumno(Song s, Playlist p) {
+    public void removeSongPlaylist(Song s, Playlist p) {
         removeSong(s);
         removePlaylist(p);
     }

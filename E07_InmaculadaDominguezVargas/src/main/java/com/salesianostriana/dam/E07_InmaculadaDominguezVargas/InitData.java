@@ -51,11 +51,10 @@ public class InitData {
 
         playlistService.save(playlist2);
 
+        addedToService.createAddedTo(playlist2, song, songService, playlistService);
 
-        AddedTo addedTo = AddedTo.builder().id(new AddedToPK(song.getId(), playlist2.getId()))
-                .dateTime(LocalDateTime.now()).orden(8).build();
 
-        addedToService.save(addedTo);
+
 
 
 
