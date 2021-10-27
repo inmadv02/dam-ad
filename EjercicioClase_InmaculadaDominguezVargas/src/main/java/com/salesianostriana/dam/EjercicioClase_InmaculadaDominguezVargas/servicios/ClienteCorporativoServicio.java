@@ -1,0 +1,10 @@
+package com.salesianostriana.dam.EjercicioClase_InmaculadaDominguezVargas.servicios;
+
+import com.salesianostriana.dam.EjercicioClase_InmaculadaDominguezVargas.model.ClienteCorporativo;
+import com.salesianostriana.dam.EjercicioClase_InmaculadaDominguezVargas.repositorios.ClienteCorporativoRepository;
+import com.salesianostriana.dam.EjercicioClase_InmaculadaDominguezVargas.servicios.base.BaseService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ClienteCorporativoServicio extends BaseService<ClienteCorporativo, Long, ClienteCorporativoRepository> {
+}
