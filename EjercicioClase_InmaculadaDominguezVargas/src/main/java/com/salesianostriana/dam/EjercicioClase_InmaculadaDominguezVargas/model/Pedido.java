@@ -27,6 +27,9 @@ public class Pedido implements Serializable {
     @CreatedDate
     private LocalDate fecha_entrega;
 
+    @Enumerated(EnumType.STRING)
+    private EstadoPedido estadoPedido;
+
     private Long id_empleado;
     private String direccion;
     private double total;

@@ -24,6 +24,9 @@ public class Empleado implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    /*
+        nombre empresa, telefono
+     */
     private String nombre;
     private String apellidos;
     private String email;

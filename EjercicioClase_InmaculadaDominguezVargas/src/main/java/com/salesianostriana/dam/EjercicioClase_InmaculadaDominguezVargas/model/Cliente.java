@@ -8,27 +8,41 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedEntityGraph(
+            name = Cliente.CLIENTE_PEDIDO,
+            attributeNodes = {
+                  @NamedAttributeNode("pedidos")
+        }
+)
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor @NoArgsConstructor
+@Getter @Setter
 @SuperBuilder
-@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorValue("C")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Cliente implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public static final String CLIENTE_PEDIDO = "grafo-cliente-pedido";
 
-    private String nombreCompania;
-    private String nombreContacto;
-    private String telefono;
-    private String direccion;
-    private String ciudad;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id;
+
+    //Corregir y poner esto
+
+    /*
+        private String nombre, apellidos, email;
+        private String direccion, poblacion, cp, provincia, telefono;
+
+     */
+    protected String nombreCompania;
+    protected String nombreContacto;
+    protected String telefono;
+    protected String direccion;
+    protected String ciudad;
 
     @Builder.Default
     @OneToMany(mappedBy = "cliente")
-    private List<Pedido> pedidosList = new ArrayList<>();
+    protected List<Pedido> pedidosList = new ArrayList<>();
 
 
 }

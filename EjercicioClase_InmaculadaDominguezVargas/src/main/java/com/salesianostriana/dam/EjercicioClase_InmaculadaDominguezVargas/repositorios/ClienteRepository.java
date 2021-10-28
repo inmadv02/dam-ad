@@ -8,9 +8,7 @@ import java.util.List;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
-    @Query("select c from Cliente c where TYPE(c) = Cliente")
-    public List<Cliente> clientesNoCorporativo();
+    @Query("select c from Cliente c where TYPE(c) != ClienteCorporativo and TYPE(c) != ClienteIndividual")
+    public List<Cliente> clientesNormales();
 
-    @Query("select c from Cliente c where TYPE(c) = Cliente")
-    public List<Cliente> clientesNoIndividual();
 }

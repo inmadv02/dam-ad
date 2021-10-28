@@ -1,15 +1,18 @@
 package com.salesianostriana.dam.EjercicioClase_InmaculadaDominguezVargas.model;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
+//@ToString(callSuper = true)
 @Getter @Setter
 @NoArgsConstructor
+@SuperBuilder
+@DiscriminatorValue("CC")
 public class ClienteCorporativo extends Cliente {
 
     private double beneficios;
