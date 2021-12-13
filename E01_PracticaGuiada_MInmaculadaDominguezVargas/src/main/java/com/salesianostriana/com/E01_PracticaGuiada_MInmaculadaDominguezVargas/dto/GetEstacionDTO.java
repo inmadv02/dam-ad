@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Builder
@@ -17,28 +14,28 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class GetEstacionDTO {
 
-    @NotNull
+    @NotNull(message = "{estacion.nombre.null}")
     private String nombre;
 
     private String marca;
 
-    @NotNull
+    @NotNull(message = "{estacion.ubicacion.null}")
     private String ubicacion;
 
-    @NotEmpty(message = "{estacion.precio.empty")
-    @Min(value = 0, message = "{estacion.precio.min")
-    private float precioGasoilNormal;
+    @NotNull(message = "{estacion.precio.blank}")
+    @Min(value = 0, message = "{estacion.precio.min}")
+    private double precioGasoilNormal;
 
-    @NotEmpty(message = "{estacion.precio.empty")
-    @Min(value = 0, message = "{estacion.precio.min")
-    private float precioGasoil95Octanos;
+    @NotNull(message = "{estacion.precio.blank}")
+    @Min(value = 0, message = "{estacion.precio.min}")
+    private double precioGasoil95Octanos;
 
-    @Min(value = 0, message = "{estacion.precio.min")
-    private float precioGasoilEspecial;
+    @Min(value = 0, message = "{estacion.precio.min}")
+    private double precioGasoilEspecial;
 
-    @Min(value = 0, message = "{estacion.precio.min")
-    private float precioGasolina98;
+    @Min(value = 0, message = "{estacion.precio.min}")
+    private double precioGasolina98;
 
-    @Past
+    @Past(message = "{estacion.fechaApertura.past}")
     private LocalDate fechaApertura;
 }

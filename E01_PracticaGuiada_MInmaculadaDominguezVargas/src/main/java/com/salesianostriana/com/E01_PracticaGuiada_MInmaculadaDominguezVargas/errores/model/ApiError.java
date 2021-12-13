@@ -31,6 +31,27 @@ public class ApiError {
     private List<ApiSubError> subErrores;
 
     public ApiError(HttpStatus notFound, String message, String requestURI) {
-        
+        this.estado = notFound;
+        this.mensaje = message;
+        this.ruta = requestURI;
+    }
+
+    public ApiError(String message, HttpStatus notFound) {
+        this.mensaje = message;
+        this.estado = notFound;
+    }
+
+    public ApiError(String message, HttpStatus notFound, LocalDateTime now, String requestURI) {
+        this.estado = notFound;
+        this.mensaje = message;
+        this.ruta = requestURI;
+        this.fecha = now;
+    }
+
+    public ApiError(HttpStatus notFound, String mensaje, String requestURI, List<ApiSubError> subErrores) {
+        this.estado = notFound;
+        this.mensaje = mensaje;
+        this.ruta = requestURI;
+        this.subErrores = subErrores;
     }
 }

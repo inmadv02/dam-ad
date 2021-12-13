@@ -28,16 +28,29 @@ public class Estacion implements Serializable {
     private String ubicacion;
     private boolean tieneAutolavado;
 
-    private float precioGasoilNormal;
-    private float precioGasoil95Octanos;
-    private float precioGasoilEspecial;
-    private float precioGasolina98;
+    private double precioGasoilNormal;
+    private double precioGasoil95Octanos;
+    private double precioGasoilEspecial;
+    private double precioGasolina98;
 
     private String servicios;
 
     private LocalDate fechaApertura;
 
 
-    public Estacion(String nombre, String marca, String ubicacion, float precioGasoilNormal, float precioGasoil95Octanos, float precioGasoilEspecial, float precioGasolina98, String servicios, boolean tieneAutolavado, LocalDate fechaApertura) {
+    public Estacion(String nombre, String marca, String ubicacion, double precioGasoilNormal,
+                    double precioGasoil95Octanos, double precioGasoilEspecial, double precioGasolina98,
+                    String servicios, boolean tieneAutolavado, LocalDate fechaApertura) {
+
+        this.nombre = nombre;
+        this.marca = marca;
+        this.ubicacion = ubicacion;
+        this.precioGasoilNormal = precioGasoilNormal;
+        this.precioGasoil95Octanos = precioGasoil95Octanos;
+        this.precioGasoilEspecial = precioGasoilEspecial;
+        this.precioGasolina98 = precioGasolina98;
+        this.servicios = servicios;
+        this.tieneAutolavado = tieneAutolavado;
+        this.fechaApertura = fechaApertura;
     }
 }

@@ -2,6 +2,6 @@ package com.salesianostriana.com.E01_PracticaGuiada_MInmaculadaDominguezVargas.e
 
 import lombok.experimental.SuperBuilder;
 
-@SuperBuilder
+
 public abstract class ApiSubError {
 }

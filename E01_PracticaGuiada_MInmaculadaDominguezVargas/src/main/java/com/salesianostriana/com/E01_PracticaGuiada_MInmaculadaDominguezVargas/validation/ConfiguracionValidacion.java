@@ -27,4 +27,7 @@ public class ConfiguracionValidacion {
         validator.setValidationMessageSource(messageSource());
         return validator;
     }
+
+
+
 }
