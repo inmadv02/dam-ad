@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "8b984790-f2d6-478e-8178-b74bf641d60a",
+		"name": "EstacionServicioApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener estaciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener estación",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener estación (Error)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva estación",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Carrefour\",\r\n    \"marca\": \"REPSOL\",\r\n    \"ubicacion\": \"16.549349292902, 24.5392929291\",\r\n    \"precioGasoilNormal\": 1.09,\r\n    \"tieneAutolavado\" : true,\r\n    \"precioGasoil95Octanos\": 1.5,\r\n    \"precioGasoilEspecial\": 1.9,\r\n    \"precioGasolina98\": 1.5,\r\n    \"servicios\" : \"Ofrece autoservicio y aseos\",\r\n    \"fechaApertura\": \"2021-06-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva estación (Error)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Editar estación",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nombre\": \"REPSOL\",\r\n        \"marca\": \"REPSOL\",\r\n        \"ubicacion\": \"16.549349292902, 24.5392929291\",\r\n        \"precioGasoilNormal\": 1.09,\r\n        \"precioGasoil95Octanos\": 1.5,\r\n        \"precioGasoilEspecial\": 1.9,\r\n        \"precioGasolina98\": 1.5,\r\n        \"fechaApertura\": \"2021-06-27\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar estación (Error)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar estación",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/estacion/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar estación (Error)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/estacion/200",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						"200"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
