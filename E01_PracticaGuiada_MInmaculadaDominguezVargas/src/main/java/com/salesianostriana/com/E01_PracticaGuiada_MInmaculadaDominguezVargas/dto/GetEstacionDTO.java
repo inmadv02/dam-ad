@@ -1,17 +1,26 @@
 package com.salesianostriana.com.E01_PracticaGuiada_MInmaculadaDominguezVargas.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.salesianostriana.com.E01_PracticaGuiada_MInmaculadaDominguezVargas.validation.multiple.anotaciones.FechaABeforeFechaR;
+import com.salesianostriana.com.E01_PracticaGuiada_MInmaculadaDominguezVargas.validation.simple.anotaciones.LocationMatch;
+import com.salesianostriana.com.E01_PracticaGuiada_MInmaculadaDominguezVargas.validation.simple.anotaciones.UniqueLocation;
+import lombok.*;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@FechaABeforeFechaR.List({
+        @FechaABeforeFechaR(
+                fechaA = "fechaApertura",
+                fechaR = "fechaRegistro",
+                message = "{estacion.fechas.invalid}"
+        )
+})
 public class GetEstacionDTO {
 
     @NotNull(message = "{estacion.nombre.null}")
@@ -19,6 +28,8 @@ public class GetEstacionDTO {
 
     private String marca;
 
+    @UniqueLocation(message = "{estacion.location.unique}")
+    @LocationMatch(message = "{estacion.location.format}")
     @NotNull(message = "{estacion.ubicacion.null}")
     private String ubicacion;
 
@@ -37,5 +48,5 @@ public class GetEstacionDTO {
     private double precioGasolina98;
 
     @Past(message = "{estacion.fechaApertura.past}")
-    private LocalDate fechaApertura;
+    private LocalDateTime fechaApertura;
 }

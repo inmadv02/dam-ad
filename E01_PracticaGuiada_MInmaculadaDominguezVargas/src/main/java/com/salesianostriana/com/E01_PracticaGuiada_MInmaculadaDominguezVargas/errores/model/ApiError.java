@@ -30,10 +30,13 @@ public class ApiError {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<ApiSubError> subErrores;
 
-    public ApiError(HttpStatus notFound, String message, String requestURI) {
-        this.estado = notFound;
-        this.mensaje = message;
-        this.ruta = requestURI;
+
+    public ApiError(HttpStatus estado, String mensaje, String ruta) {
+        this.estado = estado;
+        this.codigo = estado.value();
+        this.mensaje = mensaje;
+        this.fecha = LocalDateTime.now();
+        this.ruta = ruta;
     }
 
     public ApiError(String message, HttpStatus notFound) {
@@ -48,10 +51,11 @@ public class ApiError {
         this.fecha = now;
     }
 
-    public ApiError(HttpStatus notFound, String mensaje, String requestURI, List<ApiSubError> subErrores) {
+    public ApiError(HttpStatus notFound, String mensaje, String requestURI, List<ApiSubError> subErrores, LocalDateTime fecha) {
         this.estado = notFound;
         this.mensaje = mensaje;
         this.ruta = requestURI;
         this.subErrores = subErrores;
+        this.fecha = fecha;
     }
 }

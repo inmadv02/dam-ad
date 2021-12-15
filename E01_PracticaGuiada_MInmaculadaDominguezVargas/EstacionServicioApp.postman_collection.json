@@ -71,11 +71,114 @@
 			"response": []
 		},
 		{
-			"name": "Nueva estación (Error)",
+			"name": "Nueva estación (Error ubicación con formato erróneo)",
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": null
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Carrefour\",\r\n    \"marca\": \"REPSOL\",\r\n    \"ubicacion\": \"37.549349292902, -10005.5392929291\",\r\n    \"precioGasoilNormal\": 1.09,\r\n    \"tieneAutolavado\" : true,\r\n    \"precioGasoil95Octanos\": 1.5,\r\n    \"precioGasoilEspecial\": 1.9,\r\n    \"precioGasolina98\": 1.5,\r\n    \"servicios\" : \"Ofrece autoservicio y aseos\",\r\n    \"fechaApertura\": \"2017-01-13T17:09:42.411\",\r\n    \"fechaRegistro\" : \"2021-02-03T10:10:45\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva estación (Error nombre)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": null,\r\n    \"marca\": \"REPSOL\",\r\n    \"ubicacion\": \"16.549349292902, 24.5392929291\",\r\n    \"precioGasoilNormal\": 1.09,\r\n    \"tieneAutolavado\" : true,\r\n    \"precioGasoil95Octanos\": 1.5,\r\n    \"precioGasoilEspecial\": 1.9,\r\n    \"precioGasolina98\": 1.5,\r\n    \"servicios\" : \"Ofrece autoservicio y aseos\",\r\n    \"fechaApertura\": \"2017-01-13T17:09:42.411\",\r\n    \"fechaRegistro\" : \"2021-02-03T10:10:45\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva estación (Error fechaApertura futura)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Carrefour\",\r\n    \"marca\": \"REPSOL\",\r\n    \"ubicacion\": \"16.549349292902, 24.5392929291\",\r\n    \"precioGasoilNormal\": 1.09,\r\n    \"tieneAutolavado\" : true,\r\n    \"precioGasoil95Octanos\": 1.5,\r\n    \"precioGasoilEspecial\": 1.9,\r\n    \"precioGasolina98\": 1.5,\r\n    \"servicios\" : \"Ofrece autoservicio y aseos\",\r\n    \"fechaApertura\": \"2022-01-13T17:09:42.411\",\r\n    \"fechaRegistro\" : \"2017-02-03T10:10:45\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva estación (Error fechaApertura después registro) Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Carrefour\",\r\n    \"marca\": \"REPSOL\",\r\n    \"ubicacion\": \"16.549349292902, 24.5392929291\",\r\n    \"precioGasoilNormal\": 1.09,\r\n    \"tieneAutolavado\" : true,\r\n    \"precioGasoil95Octanos\": 1.5,\r\n    \"precioGasoilEspecial\": 1.9,\r\n    \"precioGasolina98\": 1.5,\r\n    \"servicios\" : \"Ofrece autoservicio y aseos\",\r\n    \"fechaApertura\": \"2018-01-13T17:09:42.411\",\r\n    \"fechaRegistro\" : \"2017-02-03T10:10:45\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
 			},
 			"response": []
 		},

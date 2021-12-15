@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Component
 @RequiredArgsConstructor
@@ -25,7 +26,7 @@ public class InitData {
                             .builder()
                             .nombre("Cepsa")
                             .marca("CEPSA")
-                            .fechaApertura(LocalDate.of(2020, 05, 25))
+                            .fechaApertura(LocalDateTime.of(2020, 05,25, 17, 25, 30))
                             .ubicacion("37.549349292902, -05.5392929291")
                             .precioGasoilNormal(1.54)
                             .precioGasoil95Octanos(1.8)
