@@ -1,6 +1,7 @@
 package com.salesianostriana.com.E01_PracticaGuiada_MInmaculadaDominguezVargas.model;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -36,6 +38,9 @@ public class Estacion implements Serializable {
     private String servicios;
 
     private LocalDate fechaApertura;
+
+    @CreatedDate
+    private LocalDateTime fechaRegistro;
 
 
     public Estacion(String nombre, String marca, String ubicacion, double precioGasoilNormal,

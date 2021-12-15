@@ -28,10 +28,10 @@ public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
         return super.handleExceptionInternal(ex, body, headers, status, request);
     }
 
-    private ResponseEntity<Object> buildApiError(Exception exception, WebRequest webRequest){
+    private ResponseEntity<Object> buildApiError(HttpStatus status, Exception exception, WebRequest webRequest){
         return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(new ApiError(HttpStatus.NOT_FOUND, exception.getMessage(), ((ServletWebRequest) webRequest).getRequest().getRequestURI()));
+                .status(status)
+                .body(new ApiError(status, exception.getMessage(), ((ServletWebRequest) webRequest).getRequest().getRequestURI()));
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
@@ -60,17 +60,17 @@ public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
         return ResponseEntity.ok().body(apiError);
     }
 
-    private ResponseEntity<Object> buildApiError(String mensaje, WebRequest request, List<ApiSubError> subErrores) {
+    private ResponseEntity<Object> buildApiError(HttpStatus status, String mensaje, WebRequest request, List<ApiSubError> subErrores) {
         return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(new ApiError(HttpStatus.NOT_FOUND, mensaje, ((ServletWebRequest) request).getRequest().getRequestURI(), subErrores));
+                .status(status)
+                .body(new ApiError(status, mensaje, ((ServletWebRequest) request).getRequest().getRequestURI(), subErrores));
 
     }
 
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return buildApiError("Errores varios en la validación", request, ex.getFieldErrors()
+        return buildApiError(status, "Errores varios en la validación", request, ex.getFieldErrors()
                 .stream().map(error -> ApiValidationSubError.builder()
                         .objeto(error.getObjectName())
                         .campo(error.getField())
