@@ -37,7 +37,7 @@ public class Estacion implements Serializable {
 
     private String servicios;
 
-    private LocalDate fechaApertura;
+    private LocalDateTime fechaApertura;
 
     @CreatedDate
     private LocalDateTime fechaRegistro;
@@ -45,7 +45,7 @@ public class Estacion implements Serializable {
 
     public Estacion(String nombre, String marca, String ubicacion, double precioGasoilNormal,
                     double precioGasoil95Octanos, double precioGasoilEspecial, double precioGasolina98,
-                    String servicios, boolean tieneAutolavado, LocalDate fechaApertura) {
+                    String servicios, boolean tieneAutolavado, LocalDateTime fechaApertura) {
 
         this.nombre = nombre;
         this.marca = marca;

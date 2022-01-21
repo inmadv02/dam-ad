@@ -10,11 +10,11 @@ import java.util.regex.Pattern;
 
 public class LocationMatchValidator implements ConstraintValidator<LocationMatch, String> {
 
-    private String ubicacion;
+
 
     @Override
     public void initialize(LocationMatch constraintAnnotation) {
-        ubicacion = constraintAnnotation.ubicacion();
+
     }
 
     @Override
@@ -23,15 +23,10 @@ public class LocationMatchValidator implements ConstraintValidator<LocationMatch
         String cadena = "^([-+]?\\d{1,2}[.]\\d+),\\s*([-+]?\\d{1,3}[.]\\d+)$";
         Pattern patron = Pattern.compile(cadena);
 
-        Matcher coincide = patron.matcher(this.ubicacion);
+        Matcher coincide = patron.matcher(s);
 
-        if(coincide.find()){
-            return true;
-        }
+        return coincide.find();
 
-        else {
-            return false;
-        }
 
     }
 }
